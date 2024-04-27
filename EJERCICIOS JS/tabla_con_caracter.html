@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generador de Tablas</title>
+    <script type="text/javascript">
+        function generarTabla(){
+            var filas = parseInt(document.forms["myform"]["filas"].value);
+            var columnas = parseInt(document.forms["myform"]["columnas"].value);
+            var palabra = document.forms["myform"]["palabra"].value;
+
+            var tabla = "<table border=1>";
+            for(var i = 0; i < filas; i++){
+                tabla += "<tr>";
+                for(var j = 0; j < columnas; j++){
+                    tabla += "<td>";
+                    tabla += palabra;
+                    tabla += "</td>";
+                }
+                tabla += "</tr>";
+            }
+            tabla += "</table>";
+
+           
+            document.getElementById("tabla-container").innerHTML = tabla;
+
+            return false; 
+        }
+    </script>
+</head>
+<body>
+    <form id="myform" onsubmit="return generarTabla();">
+        <p>Número de filas: <input type="text" name="filas" /></p>
+        <p>Número de columnas: <input type="text" name="columnas" /></p>
+        <p>Caracteres o palabra a generar: <input type="text" name="palabra"></p>
+        <p><input type="submit" value="Generar Tabla" /></p>
+    </form>
+
+   
+    <div id="tabla-container"></div>
+</body>
+</html>

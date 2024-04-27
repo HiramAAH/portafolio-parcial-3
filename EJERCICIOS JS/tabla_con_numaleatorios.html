@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-content: center;
+        }
+    </style>
+    <script type="text/javascript">
+        function alertName(){
+            var filas1 = parseInt(document.forms["myform"]["filas"].value);
+            var col1 = parseInt(document.forms["myform"]["cols"].value);
+            var numeroAleatorio;
+            document.write("<table border=1>");
+            for(var i = 0; i < filas1; i++){
+                document.write("<tr>");
+                for(var j = 0; j < col1; j++){
+                    document.write("<td>");
+                        numeroAleatorio=(Math.floor(Math.random()*100)+1);
+                        document.write(numeroAleatorio);
+                    document.write("</td>");
+                }
+                document.write("</tr>");
+            }
+            document.write("</table>");
+            return false;
+        }
+    </script>
+</head>
+<body>
+    <h1>Ejercicio 3</h1>
+    <form id="myform" onsubmit="return alertName();">
+        <p>numero de filas: <input type="text" name="filas" /></p>
+        <p>numero de columnas: <input type="text" name="cols" /></p>
+        <p><input type="submit" /></p>
+    </form>
+</body>
+</html>

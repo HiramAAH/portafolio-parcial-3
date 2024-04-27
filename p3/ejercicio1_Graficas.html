@@ -1,0 +1,51 @@
+EJERCICIO 1: REALIZA LAS MODIFICACIONES QUE SOLICITE TU PROFESOR
+<!DOCTYPE html>
+<html>
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+<body>
+<div id="myPlot" style="width:100%;max-width:700px"></div>
+<div id="myPlot2" style="width:100%;max-width:700px"></div>
+<div id="myPlot3" style="width:100%;max-width:700px"></div>
+<script>
+const xArray = ["Progra 1", "Matematicas", "Fisica", "Ingles II", "Progra Web"];
+const yArray = [9, 7, 7, 8, 6];
+const data = [{
+ x:xArray,
+ y:yArray,
+ type:"bar",
+ orientation:"v",
+ marker: {color:"rgba(0,0,255,0.6)"}
+}];
+const layout = {title:"Parcial 1"};
+Plotly.newPlot("myPlot", data, layout);
+
+const xArray2 = ["Progra 1", "Matematicas", "Fisica", "Ingles II", "Progra Web"];
+const yArray2 = [8, 10, 10, 8, 8];
+const data2 = [{
+ x:xArray2,
+ y:yArray2,
+ type:"bar",
+ orientation:"v",
+ marker: {color:"rgba(0,0,120,0.6)"}
+}];
+const layout2 = {title:"Parcial 2"};
+Plotly.newPlot("myPlot2", data2, layout2);
+
+const xArray3 = ["Progra 1", "Matematicas", "Fisica", "Ingles II", "Progra Web"];
+let yArray3 = [0, 0, 0, 0, 0];
+for (let i = 0; i < 5; i++) {
+    yArray3[i] = Math.floor(Math.random() * 10);
+}
+
+const data3 = [{
+ x:xArray3,
+ y:yArray3,
+ type:"bar",
+ orientation:"v",
+ marker: {color:"rgba(0,100,100,0.6)"}
+}];
+const layout3 = {title:"Parcial 3"};
+Plotly.newPlot("myPlot3", data3, layout3);
+</script>
+</body>
+</html>

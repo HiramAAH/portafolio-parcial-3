@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+<body>
+    <div>
+        <form onsubmit="return generarGrafica();">
+            <p>Inicio: <input type="number" id="inicio" name="inicio"></p>
+            <p>Fin: <input type="number" id="fin" name="fin"></p>
+            <h3>Operacion:</h3>
+            <select id="operacion" name="operacion">
+                <option value="1">Seno</option>
+                <option value="2">Coseno</option>
+                <option value="3">Tangente</option>
+                <option value="4">Cotangente</option>
+            </select>
+            <input type="submit">
+        </form>
+    </div>
+    <div id="myPlot" style="width:100%;max-width:700px"></div>
+
+    <script>
+        function generarGrafica() {
+            let exp;
+            let inicio = parseFloat(document.getElementById("inicio").value);
+            let fin = parseFloat(document.getElementById("fin").value);
+            let opc = parseInt(document.getElementById("operacion").value);
+            
+            if (opc === 1) {
+                exp = "Math.sin(x)";
+            } else if (opc === 2) {
+                exp = "Math.cos(x)";
+            } else if (opc === 3) {
+                exp = "Math.tan(x)";
+            } else if (opc === 4) {
+                exp = "1 / Math.tan(x)";
+            }
+        
+            // Generar valores
+            const xValues = [];
+            const yValues = [];
+            for (let x = inicio; x <= fin; x += 0.1) {
+                xValues.push(x);
+                yValues.push(eval(exp));
+            }
+            
+            // Mostrar usando Plotly
+            const data = [{x: xValues, y: yValues, mode: "lines"}];
+            const layout = {title: "y = " + exp};
+            Plotly.newPlot("myPlot", data, layout);
+
+            // Evitar que se recargue la página
+            return false;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+EJERCICIO 2: REALIZA LAS MODIFICACIONES SOLICITADAS
+<!DOCTYPE html>
+<html>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+<body>
+<canvas id="myChart" style="width:100%;max-width:600px"></canvas>
+<script>
+const xValues = ["Progra 1", "Ingrels II", "Fisica I", "Matematicas I", "Progra web"];
+let yValues = [0,0,0,0,0];
+for (let i = 0; i < 5; i++) {
+    yValues[i]= Math.floor(Math.random() * 10);
+}
+const barColors = ["rgba(255,0,0,0.6)", "green","blue","orange","brown"];
+new Chart("myChart", {
+ type: "bar",
+ data: {
+ labels: xValues,
+ datasets: [{
+ backgroundColor: barColors,
+ data: yValues
+ }]
+ },
+ options: {
+ legend: {display: true},
+ title: {
+ display: false,
+ text: "Parcial 1"
+ }
+ }
+});
+</script>
+</body>
+</html>

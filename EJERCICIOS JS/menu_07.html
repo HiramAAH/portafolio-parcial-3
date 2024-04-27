@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>menu</title>
+    <style>
+        body{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .div-fuera{
+            height: 400px;
+            width: 500px;
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: rgb(255, 255, 255);
+        }
+        button{
+            border-color: rgb(204, 204, 204);
+            margin: 10px;
+            padding: 10px;
+            height: 70px;
+            width: 110px;
+            background-color: rgb(212, 212, 212);
+            transition: 1s;
+            border-radius: 10px;
+        }
+        button:hover{
+            border-color: rgb(35, 177, 0);
+            height: 90px;
+            width: 130px;
+            background-color: rgb(98, 237, 135);
+            color: rgb(255, 255, 255);
+        }
+        iframe{
+            margin: 10px;
+            height: 0px;
+            width: 0px;
+            background-color: rgb(255, 255, 255);
+            border-radius: 10px;
+            transition: 2s;
+        }
+        .iframe-visible {
+            height: 500px;
+            width: 500px;
+            background-color: rgb(223, 223, 223);
+        }
+        
+    </style>
+</head>
+<body>
+    <h1>Ejercicio menu</h1>
+    <div class="div-fuera">
+        <p>
+            <button onclick="clickTarea('variables.html')">0.Variables</button>
+            <button onclick="clickTarea('parrafos.html')">1.Generador de parrafos</button>
+            <button onclick="clickTarea('generador_de_tabla.html')">2.Tabla</button>
+        </p>
+        <p>
+            <button onclick="clickTarea('tabla_con_caracter.html')">3.Tabla-caracter</button>
+            <button onclick="clickTarea('tabla_con_numaleatorios.html')">4.Tabla.numero</button>
+            <button onclick="clickTarea('password.html')">5.password</button>
+        </p>
+        <p>
+            <button onclick="clickTarea('reto2js.html')">6.Convertidor</button>
+            <button onclick="clickTarea('arreglosjs.html')">7.Arreglos</button>
+        </p>
+
+        
+    </div>
+    
+    <script>
+        function clickTarea(tarea){
+            iframe.onload = function() {
+                iframe.classList.add("iframe-visible"); // Agrega la clase para mostrar la animación
+            };
+            document.getElementById("iframe").src = tarea;
+        }
+    </script>
+    <iframe id="iframe" frameborder="0"></iframe>
+    
+    
+    
+</body>
+</html>
