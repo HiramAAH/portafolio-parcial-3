@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juego Del Ahorcado</title>
+    <style>
+        body{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        input{
+            background-color: rgb(160, 160, 160);
+            border: none;
+            border-radius: 5px;
+            transition: 1s;
+        }
+        input.probar:hover{
+            background-color: rgb(0, 255, 115);
+            color: rgb(255, 255, 255);
+        }
+        button{
+            background-color: rgb(160, 160, 160);
+            border: none;
+            transition: 1s;
+            border-color: gray;
+            border-radius: 5px;
+        }
+        button:hover{
+            background-color: red;
+            color: rgb(255, 255, 255);
+        }
+    </style>
+    <script>
+        let vidas=6;
+        function palabra(){
+            
+            let palabra=document.getElementById("palabra").value;
+            if(palabra==="hola"){
+                alert("Has Ganado :D");
+            }else{
+                --vidas;
+                dibujar(vidas);
+            }
+            
+            
+        }
+        function dibujar(vidas){
+            
+            console.log("vidas: "+vidas);
+            const canvas=document.getElementById("myCanvas");
+            const ctx=canvas.getContext("2d");
+            if(vidas===5){
+                //cabeza
+                ctx.beginPath();
+                ctx.arc(200,50,40,0,2*Math.PI);
+                ctx.stroke();
+            }else if(vidas==4){
+                //mano izq
+                ctx.beginPath();
+                ctx.moveTo(200,90);
+                ctx.lineTo(150,120);
+                ctx.stroke();
+            }else if(vidas==3){
+                //mano der
+                ctx.beginPath();
+                ctx.moveTo(200,90);
+                ctx.lineTo(250,120);
+                ctx.stroke();
+            }else if(vidas==2){
+                //cuerpo
+                ctx.beginPath();
+                ctx.moveTo(200,90);
+                ctx.lineTo(200,250)
+                ctx.stroke();
+            }else if(vidas==1){
+                //pierna izq
+                ctx.beginPath();
+                ctx.moveTo(200,250);
+                ctx.lineTo(150,280);
+                ctx.stroke();
+            }else if(vidas==0){
+                //pierna der
+                ctx.beginPath();
+                ctx.moveTo(200,250);
+                ctx.lineTo(250,280);
+                ctx.stroke();
+                alert("Game Over...La palabra era Hola");
+            }   
+        }
+
+        function limpiar(){
+            const canvas=document.getElementById("myCanvas");
+            const ctx = canvas.getContext("2d");
+            ctx.fillStyle = "white";
+            ctx.fillRect(10,10,400,400);
+            vidas=6;
+        }
+
+        
+    </script>
+</head>
+<body>
+    <h1>Juego Del Ahorcado (PARTE 1)</h1>
+    <canvas id="myCanvas" width="400px" height="400px" style="border: 10px solid;"></canvas>
+    <p>palabra:</p>
+    <p><input type="text" id="palabra"></p>
+    <input type="submit" onclick="palabra()" value="Probar" class="probar">
+    <button onclick="limpiar()">Reiniciar</button>
+</body>
+</html>
