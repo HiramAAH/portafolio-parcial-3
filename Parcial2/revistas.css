@@ -1,0 +1,33 @@
+html {
+    background-color: hwb(150 25% 30%);
+    font-family: ;
+    line-height: 125%;
+    text-align: ;
+    hyphens: auto;
+}
+
+section {
+    display: flex;
+    flex-wrap: ;
+    justify-content: ;
+}
+
+article {
+    display: flex;
+    flex-direction: ;
+    width: ;
+    margin: ;
+    border: black 3px solid;
+    background-color: hwb(150 50% 30%);
+}
+
+h2 {
+    margin: ;
+    padding: ;
+    border-right: black 1px solid;
+}
+
+div {
+    margin: ;
+}
+
